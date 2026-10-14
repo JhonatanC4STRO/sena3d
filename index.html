@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mirar3D</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="scene"></canvas>
+  <div id="fade"></div>
+
+  <!-- Pantalla de inicio -->
+  <div id="intro">
+    <div class="card">
+      <h1>Mirar3D</h1>
+      <p>Tu pantalla se convierte en una ventana. Mueve la cabeza y mira dentro del salón.</p>
+      <div class="row">
+        <button id="btn-cam" class="primary">Activar cámara</button>
+        <button id="btn-mouse">Usar ratón</button>
+      </div>
+      <p class="hint" style="margin-bottom:12px">Recorrer caminando: <a href="sena.html" style="color:#f0b24a">SENA · Centro Tecnológico de la Amazonía →</a> · <a href="aula.html" style="color:#f0b24a">aula →</a> · <a href="templo.html" style="color:#f0b24a">templo →</a></p>
+      <p class="hint">La cámara se procesa solo en tu navegador. Para mejor efecto: siéntate a ~50&nbsp;cm y pon la ventana en pantalla completa.</p>
+      <p id="intro-error" class="error"></p>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="themes"></div>
+    <div id="controls">
+      <button id="btn-center" title="Centrar (C)">Centrar</button>
+      <label class="slider">Intensidad
+        <input id="gain" type="range" min="0.5" max="3" step="0.1" value="1.5" />
+      </label>
+      <button id="btn-toggle-cam" title="Cámara / ratón">Ratón</button>
+      <button id="btn-full" title="Pantalla completa (F)">⛶</button>
+      <button onclick="location.href='sena.html'">SENA →</button>
+    </div>
+    <div class="keys">1–5 temas · C centrar · F pantalla completa · H ocultar</div>
+  </div>
+
+  <!-- Vista previa de la webcam -->
+  <div id="cam" class="hidden">
+    <video id="video" playsinline muted></video>
+    <canvas id="cam-overlay" width="160" height="120"></canvas>
+    <span id="cam-status">Cargando…</span>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

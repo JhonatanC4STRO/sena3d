@@ -1,0 +1,45 @@
+#intro .card a, a.pill { color: #f0b24a; text-decoration: none; }
+a.pill {
+  font-size: 13px; padding: 6px 12px; border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+}
+#controls { bottom: 34px; }
+#controls button, .slider { background: rgba(0, 0, 0, 0.35); }
+
+#area {
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+  font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: #fff7e6; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+  pointer-events: none; transition: opacity 0.6s;
+}
+#crosshair {
+  position: fixed; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px 0 0 -2px;
+  border-radius: 50%; background: rgba(255, 255, 255, 0.7); pointer-events: none;
+}
+
+#headpad {
+  position: fixed; right: 14px; bottom: 146px; width: 80px; height: 80px;
+  border-radius: 50%; background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: opacity 0.5s; pointer-events: none;
+}
+#headpad .ring {
+  position: absolute; inset: 22%; border-radius: 50%; border: 1px dashed rgba(255, 255, 255, 0.45);
+}
+#headpad .dot {
+  position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px;
+  border-radius: 50%; background: #7dff9a;
+}
+#headpad.turning .dot { background: #f0b24a; }
+
+@media (max-width: 600px) {
+  #headpad { bottom: 106px; width: 60px; height: 60px; }
+}
+
+#prompt {
+  position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%) translateY(10px);
+  padding: 10px 18px; border-radius: 999px; font-size: 15px; cursor: pointer;
+  background: rgba(20, 16, 12, 0.75); border: 1px solid rgba(240, 178, 74, 0.7); color: #fff3dc;
+  backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.25s;
+}
+#prompt.show { opacity: 1; pointer-events: auto; transform: translateX(-50%); }
