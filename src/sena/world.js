@@ -645,7 +645,7 @@ export function createSenaWorld({ scene, renderer }) {
   };
   placeSun(sunDir);
   sun.castShadow = true;
-  sun.shadow.mapSize.set(4096, 4096);
+  sun.shadow.mapSize.set(2048, 2048);
   Object.assign(sun.shadow.camera, { left: -75, right: 75, top: 75, bottom: -75, near: 20, far: 320 });
   sun.shadow.bias = -0.0004;
   sun.shadow.normalBias = 0.05;
@@ -698,7 +698,6 @@ export function createSenaWorld({ scene, renderer }) {
     exposure: 0.65,
     near: 0.08,
     far: 1500,
-    ao: { radius: 3, distanceExponent: 1, thickness: 8, scale: 1.6, samples: 16, blend: 1 },
     update: (t, dt) => updaters.forEach((u) => u(t, dt)),
   };
 }
